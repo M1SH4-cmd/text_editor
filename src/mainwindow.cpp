@@ -1,8 +1,20 @@
 #include "mainwindow.h"
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+
+    QTimer *timer = new QTimer(this);
+    timer->start(5000);
+    connect(timer, &QTimer::timeout, [this, timer](){
+        if (!bufferFilePath.isEmpty()) {
+            MainWindow::saveFile();
+        }
+        timer->stop();
+        timer->start(5000);
+    });
+
     centralWidget = new QWidget();
     this->resize(1280, 720);
     textEdit = new QTextEdit();
@@ -10,23 +22,21 @@ MainWindow::MainWindow(QWidget *parent)
     fonts = QFontDatabase::families();
 
     menuBar = new QMenuBar();
+
     fileMenu = menuBar->addMenu("File");
 
     openAction = fileMenu->addAction("Open");
     saveAction = fileMenu->addAction("Save");
-    saveAsAction = fileMenu->addAction("Save As...");
+    saveAsAction = fileMenu->addAction("Save as...");
+
+    helpMenu = menuBar->addMenu("Help");
+
+    controlsAction = helpMenu->addAction("Controls");
+    aboutAction = helpMenu->addAction("About...");
 
     overallLayout = new QVBoxLayout();
 
-    openBtn = new QPushButton("Open");
-    openBtn->setFont(QFont("Roboto", 10));
-    saveAsBtn = new QPushButton("Save as...");
-    saveAsBtn->setFont(QFont("Roboto", 10));
-    saveFileBtn = new QPushButton("Save");
-    saveFileBtn->setFont(QFont("Roboto", 10));
-
     fontComboBox = new QComboBox();
-
     fontComboBox->addItems(fonts);
 
     fontValue = new QSpinBox();
@@ -44,6 +54,30 @@ MainWindow::MainWindow(QWidget *parent)
     connect(openAction, &QAction::triggered, this, &MainWindow::open);
     connect(saveAction, &QAction::triggered, this, &MainWindow::saveFile);
     connect(saveAsAction, &QAction::triggered, this, &MainWindow::saveAs);
+
+    connect(controlsAction, &QAction::triggered, [](){
+        QMessageBox message;
+        message.setText(QString("Undo: Ctrl + Z\n"
+                                "Redo: Ctrl + Z\n"
+                                "Save: Ctrl + S\n"
+                                "Save as...: Ctrl + Shift + S\n"
+                                "Open: Ctrl + O\n"
+                                "Button 'Save as...' saves a new file\n"
+                                "Button 'Save' saves current opened file\n"
+                                "Button 'Open' opens selected file\n"));
+        message.setFont(QFont("Roboto", 14));
+        message.exec();
+    });
+
+    connect(aboutAction, &QAction::triggered, [](){
+        QMessageBox message;
+        message.setText(QString("A casual 'Notebook' app that can open and edit casual .txt files\n"
+                                "Check 'controls' to see all hotkeys\n\n\n"
+                                "Made by OG_Michael\n"));
+
+        message.setFont(QFont("Roboto", 14));
+        message.exec();
+    });
 
     connect(fontComboBox, &QComboBox::currentTextChanged, [this](){
         QTextCursor cursor = textEdit->textCursor();
@@ -63,49 +97,126 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    //connect(textEdit, &QTextEdit::cursorPositionChanged, this, &MainWindow::updateFormattingControls);
+
+
     centralWidget->setLayout(overallLayout);
     setCentralWidget(centralWidget);
-}
 
+}
 
 MainWindow::~MainWindow() {}
 
 void MainWindow::open() {
+    bufferFilePath = "";
     QString path = QFileDialog::getOpenFileName(nullptr, "Open txt file",
                                                 QDir::homePath() + "/Desktop/",
                                                 "Text files (*.txt)");
+    if (path.isEmpty()) return;
+
     bufferFilePath = path;
-    std::ifstream txtinF(path.toStdString());
 
-    if (!txtinF.is_open()) return;
-
-    while (!txtinF.eof()) {
-        std::string buffer = "";
-        txtinF >> buffer;
-        text += buffer + "\n";
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Error", "Cannot open file");
+        return;
     }
 
-    textEdit->setText(text);
-    txtinF.close();
+    QTextStream in(&file);
+    textEdit->setPlainText(in.readAll());
+    file.close();
+    //updateFormattingControls();
 }
 
 void MainWindow::saveFile() {
-    std::ofstream txtoutF(bufferFilePath.toStdString());
+    if (bufferFilePath.isEmpty()) {
+        saveAs();
+        return;
+    }
 
-    if (!txtoutF.is_open()) return;
+    QFile file(bufferFilePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Error", "Cannot save file");
+        return;
+    }
 
-    txtoutF << textEdit->toPlainText().toStdString();
-    txtoutF.close();
+    QTextStream out(&file);
+    out << textEdit->toPlainText();
+    file.close();
+    statusBar()->showMessage("File saved: " + bufferFilePath, 3000);
 }
-
 
 void MainWindow::saveAs() {
-    QString path = QFileDialog::getSaveFileName(nullptr, "Save txt file",
-                                                QDir::homePath() + "/Desktop/",
-                                                "Text files (*txt)");
-    std::ofstream txtoutF(path.toStdString());
-    if (!txtoutF.is_open()) return;
+    QString path = QFileDialog::getSaveFileName(
+        this,
+        "Save txt file",
+        QDir::homePath() + "/Desktop/",
+        "Text files (*.txt)"
+        );
 
-    txtoutF << textEdit->toPlainText().toStdString();
-    txtoutF.close();
+    if (path.isEmpty()) {
+        return;
+    }
+
+    if (!path.endsWith(".txt", Qt::CaseInsensitive)) {
+        path += ".txt";
+    }
+
+    QFile file(path);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Error", "Cannot save file");
+        return;
+    }
+
+    QTextStream out(&file);
+    out << textEdit->toPlainText();
+    file.close();
+
+    bufferFilePath = path;
+
+    statusBar()->showMessage("File saved: " + path, 3000);
 }
+
+void MainWindow::keyPressEvent(QKeyEvent *e) {
+    switch(e->key()) {
+    case Qt::Key_S:
+        if (e->modifiers() & Qt::ControlModifier) {
+            if (e->modifiers() & Qt::ShiftModifier) {
+                saveAs();
+            } else {
+                saveFile();
+            }
+        }
+        break;
+    case Qt::Key_O:
+        if (e->modifiers() & Qt::ControlModifier) {
+            open();
+        }
+        break;
+    // case Qt::Key_B:
+    //     break;
+    // case Qt::Key_U:
+    //     break;
+    default:
+        QMainWindow::keyPressEvent(e);
+    }
+}
+
+// void MainWindow::updateFormattingControls() {
+//     if (textEdit->toPlainText().isEmpty()) return;
+
+//     QTextCursor cursor = textEdit->textCursor();
+//     QTextCharFormat format = cursor.charFormat();
+
+//     QString fontFamily = format.fontFamily();
+//     if (true) {
+//         int index = fontComboBox->findText(fontFamily);
+//         if (index >= 0) {
+//             fontComboBox->setCurrentIndex(index);
+//         }
+//     }
+
+//     if (format.hasProperty(QTextFormat::FontPointSize)) {
+//         fontValue->setValue(format.fontPointSize());
+//     }
+// }

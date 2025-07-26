@@ -1,0 +1,9 @@
+# ninja log v6
+30	754	7752538176177503	TextEditor_autogen/timestamp	31337bf5bc2ab211
+30	754	7752538176177503	TextEditor_autogen/mocs_compilation.cpp	31337bf5bc2ab211
+30	754	7752538176177503	C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/timestamp	31337bf5bc2ab211
+30	754	7752538176177503	C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/mocs_compilation.cpp	31337bf5bc2ab211
+765	3956	7752538177167483	CMakeFiles/TextEditor.dir/src/main.cpp.obj	99bbc72ac35742bf
+761	3982	7752538177117537	CMakeFiles/TextEditor.dir/TextEditor_autogen/mocs_compilation.cpp.obj	408fab6e452adb9d
+769	4107	7752538177207541	CMakeFiles/TextEditor.dir/src/mainwindow.cpp.obj	56a80b759d5630b3
+4107	4350	7752538210577490	TextEditor.exe	4048f88e53539483

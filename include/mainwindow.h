@@ -18,6 +18,8 @@
 #include <QTextDocumentWriter>
 #include <QMessageBox>
 #include <fstream>
+#include <QKeyEvent>
+#include <QStatusBar>
 
 class MainWindow : public QMainWindow
 {
@@ -30,6 +32,8 @@ public:
     void open();
     void saveAs();
     void saveFile();
+    void keyPressEvent(QKeyEvent *e);
+    //void updateFormattingControls();
 
 private:
     QString text;
@@ -41,9 +45,6 @@ private:
     QTextEdit *textEdit;
     QVBoxLayout *overallLayout;
 
-    QPushButton *openBtn;
-    QPushButton *saveAsBtn;
-    QPushButton *saveFileBtn;
     QToolBar *btnToolBar;
 
     QComboBox *fontComboBox;
@@ -51,10 +52,15 @@ private:
 
     QMenuBar *menuBar;
     QMenu *fileMenu;
+    QMenu *helpMenu;
 
     QAction *openAction;
     QAction *saveAction;
     QAction *saveAsAction;
+
+    QAction *controlsAction;
+    QAction *aboutAction;
+
 
 };
 
