@@ -20,6 +20,9 @@
 #include <fstream>
 #include <QKeyEvent>
 #include <QStatusBar>
+#include <QDate>
+#include <QApplication>
+#include <QTimer>
 
 class MainWindow : public QMainWindow
 {
@@ -33,7 +36,6 @@ public:
     void saveAs();
     void saveFile();
     void keyPressEvent(QKeyEvent *e);
-    //void updateFormattingControls();
 
 private:
     QString text;
@@ -53,6 +55,7 @@ private:
     QMenuBar *menuBar;
     QMenu *fileMenu;
     QMenu *helpMenu;
+    QMenu *editMenu;
 
     QAction *openAction;
     QAction *saveAction;
@@ -61,7 +64,10 @@ private:
     QAction *controlsAction;
     QAction *aboutAction;
 
-
+    QAction *find;
+    QAction *findNext;
+    QAction *selectAll;
+    QAction *dateTime;
 };
 
 #endif

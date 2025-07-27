@@ -2,6 +2,7 @@
 C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDate
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDir
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QFile
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QList
@@ -9,6 +10,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QRect
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSize
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSizeF
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QTimer
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20functional.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20iterator.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20memory.h
@@ -25,6 +27,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qatomic.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qatomic_cxx11.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbasicatomic.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbasictimer.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbindingstorage.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearray.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearrayalgorithms.h
@@ -132,6 +135,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtdeprecationmarkers.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtenvironmentvariables.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtextstream.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtimer.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtimezone.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtmetamacros.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtnoop.h
@@ -198,6 +202,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qvectornd.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs_win.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QFileDialog
@@ -216,6 +221,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractscrollarea.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractspinbox.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qapplication.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qboxlayout.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialog.h
@@ -245,5 +251,5 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qwidget.h
-C:/Programming/Development/Projs/TextEditor/src/mainwindow.cpp
 C:/Programming/Development/Projs/TextEditor/src/main.cpp
+C:/Programming/Development/Projs/TextEditor/src/mainwindow.cpp

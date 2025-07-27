@@ -1,4 +1,5 @@
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/6YEA5652QU/moc_mainwindow.cpp: C:/Programming/Development/Projs/TextEditor/include/mainwindow.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDate \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDir \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QFile \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QList \
@@ -6,6 +7,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QRect \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSize \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSizeF \
+  C:/Qt/6.8.3/msvc2022_64/include/QtCore/QTimer \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20iterator.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20memory.h \
@@ -22,6 +24,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qatomic.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearray.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
@@ -129,6 +132,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtimer.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtimezone.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtnoop.h \
@@ -195,6 +199,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/qvectornd.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QFileDialog \
@@ -213,6 +218,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractspinbox.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialog.h \

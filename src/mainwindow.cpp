@@ -1,18 +1,16 @@
 #include "mainwindow.h"
-#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-
     QTimer *timer = new QTimer(this);
-    timer->start(5000);
+    timer->start(10000);
     connect(timer, &QTimer::timeout, [this, timer](){
         if (!bufferFilePath.isEmpty()) {
             MainWindow::saveFile();
         }
         timer->stop();
-        timer->start(5000);
+        timer->start(10000);
     });
 
     centralWidget = new QWidget();
@@ -33,6 +31,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     controlsAction = helpMenu->addAction("Controls");
     aboutAction = helpMenu->addAction("About...");
+
+    editMenu = menuBar->addMenu("Edit");
+
+    find = editMenu->addAction("Find");
+    findNext = editMenu->addAction("Find next...");
+    selectAll = editMenu->addAction("Select all");
+    dateTime = editMenu->addAction("Insert date");
 
     overallLayout = new QVBoxLayout();
 
@@ -69,6 +74,16 @@ MainWindow::MainWindow(QWidget *parent)
         message.exec();
     });
 
+    connect(dateTime, &QAction::triggered, [this](){
+        QTextCursor cursor = textEdit->textCursor();
+        textEdit->insertPlainText(QString(QDateTime::currentDateTime(QTimeZone::LocalTime).toString("dd/mm/yyyy hh:mm:ss")));
+    });
+
+    connect(selectAll, &QAction::triggered, [this](){
+        auto e = new QKeyEvent(QKeyEvent::KeyPress, Qt::Key_A, Qt::ControlModifier);
+        QApplication::sendEvent(textEdit, e);
+    });
+
     connect(aboutAction, &QAction::triggered, [](){
         QMessageBox message;
         message.setText(QString("A casual 'Notebook' app that can open and edit casual .txt files\n"
@@ -97,12 +112,8 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
-    //connect(textEdit, &QTextEdit::cursorPositionChanged, this, &MainWindow::updateFormattingControls);
-
-
     centralWidget->setLayout(overallLayout);
     setCentralWidget(centralWidget);
-
 }
 
 MainWindow::~MainWindow() {}
@@ -125,7 +136,7 @@ void MainWindow::open() {
     QTextStream in(&file);
     textEdit->setPlainText(in.readAll());
     file.close();
-    //updateFormattingControls();
+    statusBar()->showMessage("File loaded: " + bufferFilePath, 2000);
 }
 
 void MainWindow::saveFile() {
@@ -143,7 +154,7 @@ void MainWindow::saveFile() {
     QTextStream out(&file);
     out << textEdit->toPlainText();
     file.close();
-    statusBar()->showMessage("File saved: " + bufferFilePath, 3000);
+    statusBar()->showMessage("File saved: " + bufferFilePath, 2000);
 }
 
 void MainWindow::saveAs() {
@@ -174,7 +185,7 @@ void MainWindow::saveAs() {
 
     bufferFilePath = path;
 
-    statusBar()->showMessage("File saved: " + path, 3000);
+    statusBar()->showMessage("File saved: " + path, 2000);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e) {
@@ -188,35 +199,19 @@ void MainWindow::keyPressEvent(QKeyEvent *e) {
             }
         }
         break;
+
     case Qt::Key_O:
         if (e->modifiers() & Qt::ControlModifier) {
             open();
         }
         break;
+
     // case Qt::Key_B:
     //     break;
     // case Qt::Key_U:
     //     break;
+
     default:
         QMainWindow::keyPressEvent(e);
     }
 }
-
-// void MainWindow::updateFormattingControls() {
-//     if (textEdit->toPlainText().isEmpty()) return;
-
-//     QTextCursor cursor = textEdit->textCursor();
-//     QTextCharFormat format = cursor.charFormat();
-
-//     QString fontFamily = format.fontFamily();
-//     if (true) {
-//         int index = fontComboBox->findText(fontFamily);
-//         if (index >= 0) {
-//             fontComboBox->setCurrentIndex(index);
-//         }
-//     }
-
-//     if (format.hasProperty(QTextFormat::FontPointSize)) {
-//         fontValue->setValue(format.fontPointSize());
-//     }
-// }
