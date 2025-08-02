@@ -3,6 +3,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    setWindowIcon(QIcon(":/resources/mainWindowIcon.png"));
+
     QTimer *timer = new QTimer(this);
     timer->start(10000);
     connect(timer, &QTimer::timeout, [this, timer](){
@@ -23,30 +25,32 @@ MainWindow::MainWindow(QWidget *parent)
 
     fileMenu = menuBar->addMenu("File");
 
-    openAction = fileMenu->addAction("Open");
-    saveAction = fileMenu->addAction("Save");
-    saveAsAction = fileMenu->addAction("Save as...");
+    openAction = fileMenu->addAction(QIcon(":resources/openActionIcon.png"), "Open");
+    saveAction = fileMenu->addAction(QIcon(":resources/saveActionIcon.png"), "Save");
+    saveAsAction = fileMenu->addAction(QIcon(":resources/saveAsActionIcon.png"), "Save as...");
 
     helpMenu = menuBar->addMenu("Help");
 
-    controlsAction = helpMenu->addAction("Controls");
-    aboutAction = helpMenu->addAction("About...");
+    controlsAction = helpMenu->addAction(QIcon(":resources/controlsActionIcon.png"), "Controls");
+    aboutAction = helpMenu->addAction(QIcon(":resources/aboutActionIcon.png"), "About...");
 
     editMenu = menuBar->addMenu("Edit");
 
-    find = editMenu->addAction("Find");
-    findNext = editMenu->addAction("Find next...");
-    selectAll = editMenu->addAction("Select all");
-    dateTime = editMenu->addAction("Insert date");
+    find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");//                           TODO: Not working yet
+    findNext = editMenu->addAction(QIcon(":resources/findNextActionIcon.png"), "Find next...");//           TODO: Not working yet
+    selectAll = editMenu->addAction(QIcon(":resources/selectAllActionIcon.png"), "Select all");
+    dateTime = editMenu->addAction(QIcon(":resources/insertDateActionIcon.png"), "Insert date");
 
     overallLayout = new QVBoxLayout();
 
     fontComboBox = new QComboBox();
     fontComboBox->addItems(fonts);
+    fontComboBox->setCurrentText("Times New Roman");
 
     fontValue = new QSpinBox();
     fontValue->setRange(2, 72);
     fontValue->setSingleStep(2);
+    fontValue->setValue(12);
 
     btnToolBar = new QToolBar();
     btnToolBar->addWidget(fontComboBox);
@@ -65,7 +69,6 @@ MainWindow::MainWindow(QWidget *parent)
         message.setText(QString("Undo: Ctrl + Z\n"
                                 "Redo: Ctrl + Z\n"
                                 "Save: Ctrl + S\n"
-                                "Save as...: Ctrl + Shift + S\n"
                                 "Open: Ctrl + O\n"
                                 "Button 'Save as...' saves a new file\n"
                                 "Button 'Save' saves current opened file\n"
@@ -95,21 +98,21 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(fontComboBox, &QComboBox::currentTextChanged, [this](){
-        QTextCursor cursor = textEdit->textCursor();
-        if (cursor.hasSelection()) {
-            QTextCharFormat format;
-            format.setFont(fontComboBox->currentText());
-            cursor.setCharFormat(format);
-        }
+        QTextCursor cursor(textEdit->document());
+        cursor.select(QTextCursor::Document);
+        QTextCharFormat format;
+        format.setFontFamily(fontComboBox->currentText());
+        cursor.mergeCharFormat(format);
+        textEdit->setCurrentCharFormat(format);
     });
 
     connect(fontValue, &QSpinBox::valueChanged, [this](){
-        QTextCursor cursor = textEdit->textCursor();
-        if (cursor.hasSelection()) {
-            QTextCharFormat format;
-            format.setFontPointSize(fontValue->value());
-            cursor.setCharFormat(format);
-        }
+        QTextCursor cursor(textEdit->document());
+        cursor.select(QTextCursor::Document);
+        QTextCharFormat format;
+        format.setFontPointSize(fontValue->value());
+        cursor.mergeCharFormat(format);
+        textEdit->setCurrentCharFormat(format);
     });
 
     centralWidget->setLayout(overallLayout);
@@ -192,11 +195,7 @@ void MainWindow::keyPressEvent(QKeyEvent *e) {
     switch(e->key()) {
     case Qt::Key_S:
         if (e->modifiers() & Qt::ControlModifier) {
-            if (e->modifiers() & Qt::ShiftModifier) {
-                saveAs();
-            } else {
-                saveFile();
-            }
+            saveFile();
         }
         break;
 
@@ -205,11 +204,6 @@ void MainWindow::keyPressEvent(QKeyEvent *e) {
             open();
         }
         break;
-
-    // case Qt::Key_B:
-    //     break;
-    // case Qt::Key_U:
-    //     break;
 
     default:
         QMainWindow::keyPressEvent(e);

@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/aboutActionIcon.png</file>
+        <file>resources/controlsActionIcon.png</file>
+        <file>resources/exeFileIcon.ico</file>
+        <file>resources/findActionIcon.png</file>
+        <file>resources/findNextActionIcon.png</file>
+        <file>resources/insertDateActionIcon.png</file>
+        <file>resources/mainWindowIcon.png</file>
+        <file>resources/openActionIcon.png</file>
+        <file>resources/saveActionIcon.png</file>
+        <file>resources/saveAsActionIcon.png</file>
+        <file>resources/selectAllActionIcon.png</file>
+    </qresource>
+</RCC>

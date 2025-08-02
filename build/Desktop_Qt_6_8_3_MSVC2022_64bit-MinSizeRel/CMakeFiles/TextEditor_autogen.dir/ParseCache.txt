@@ -155,6 +155,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qxptype_traits.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qyieldcpu.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QFontDatabase
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QIcon
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QKeyEvent
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QTextDocumentWriter
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QTransform
@@ -251,5 +252,5 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qwidget.h
-C:/Programming/Development/Projs/TextEditor/src/main.cpp
 C:/Programming/Development/Projs/TextEditor/src/mainwindow.cpp
+C:/Programming/Development/Projs/TextEditor/src/main.cpp

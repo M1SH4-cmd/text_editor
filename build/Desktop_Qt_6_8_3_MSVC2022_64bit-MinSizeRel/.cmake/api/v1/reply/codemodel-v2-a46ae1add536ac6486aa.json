@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-MinSizeRel-370047619ca95fb37d49.json",
+					"jsonFile" : "directory-.-MinSizeRel-6610e9ed10720d420647.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TextEditor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TextEditor-MinSizeRel-77cf5414d4edb842eb3e.json",
+					"jsonFile" : "target-TextEditor-MinSizeRel-299515ad9a41dbde8a94.json",
 					"name" : "TextEditor",
 					"projectIndex" : 0
 				},

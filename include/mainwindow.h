@@ -17,12 +17,12 @@
 #include <QFontDatabase>
 #include <QTextDocumentWriter>
 #include <QMessageBox>
-#include <fstream>
 #include <QKeyEvent>
 #include <QStatusBar>
 #include <QDate>
 #include <QApplication>
 #include <QTimer>
+#include <QIcon>
 
 class MainWindow : public QMainWindow
 {

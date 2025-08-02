@@ -152,6 +152,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/QFontDatabase \
+  C:/Qt/6.8.3/msvc2022_64/include/QtGui/QIcon \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/QKeyEvent \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/QTextDocumentWriter \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/QTransform \
