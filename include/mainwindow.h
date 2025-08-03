@@ -33,6 +33,7 @@ public:
     ~MainWindow();
 
     void open();
+    void openFromWin(QString filePath);
     void saveAs();
     void saveFile();
     void keyPressEvent(QKeyEvent *e);

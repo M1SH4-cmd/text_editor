@@ -67,7 +67,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(controlsAction, &QAction::triggered, [](){
         QMessageBox message;
         message.setText(QString("Undo: Ctrl + Z\n"
-                                "Redo: Ctrl + Z\n"
+                                "Redo: Ctrl + Y\n"
                                 "Save: Ctrl + S\n"
                                 "Open: Ctrl + O\n"
                                 "Button 'Save as...' saves a new file\n"
@@ -79,7 +79,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(dateTime, &QAction::triggered, [this](){
         QTextCursor cursor = textEdit->textCursor();
-        textEdit->insertPlainText(QString(QDateTime::currentDateTime(QTimeZone::LocalTime).toString("dd/mm/yyyy hh:mm:ss")));
+        textEdit->insertPlainText(QString(QDateTime::currentDateTime(QTimeZone::LocalTime).toString("dd/MM/yyyy hh:mm:ss")));
     });
 
     connect(selectAll, &QAction::triggered, [this](){
@@ -126,6 +126,25 @@ void MainWindow::open() {
     QString path = QFileDialog::getOpenFileName(nullptr, "Open txt file",
                                                 QDir::homePath() + "/Desktop/",
                                                 "Text files (*.txt)");
+    if (path.isEmpty()) return;
+
+    bufferFilePath = path;
+
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Error", "Cannot open file");
+        return;
+    }
+
+    QTextStream in(&file);
+    textEdit->setPlainText(in.readAll());
+    file.close();
+    statusBar()->showMessage("File loaded: " + bufferFilePath, 2000);
+}
+
+void MainWindow::openFromWin(QString path) {
+    bufferFilePath = "";
+
     if (path.isEmpty()) return;
 
     bufferFilePath = path;
