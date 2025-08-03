@@ -360,6 +360,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Programming/Development/Projs/TextEditor/include/find_dialog_window.h",
+			"MU",
+			"6YEA5652QU/moc_find_dialog_window.cpp",
+			null
+		],
+		[
 			"C:/Programming/Development/Projs/TextEditor/include/mainwindow.h",
 			"MU",
 			"6YEA5652QU/moc_mainwindow.cpp",
@@ -423,6 +429,11 @@
 	"SETTINGS_FILE" : "C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/CMakeFiles/TextEditor_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Programming/Development/Projs/TextEditor/src/find_dialog_window.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Programming/Development/Projs/TextEditor/src/main.cpp",
 			"MU",

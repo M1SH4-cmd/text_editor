@@ -19,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent)
     this->resize(1280, 720);
     textEdit = new QTextEdit();
 
+    p = textEdit->palette();
+    p.setColor(QPalette::Highlight, Qt::green);  // цвет фона выделения (подсветки)
+    p.setColor(QPalette::HighlightedText, Qt::black); // цвет выделенного текста
+    textEdit->setPalette(p);
+
     fonts = QFontDatabase::families();
 
     menuBar = new QMenuBar();
@@ -36,8 +41,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     editMenu = menuBar->addMenu("Edit");
 
-    find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");//                           TODO: Not working yet
-    findNext = editMenu->addAction(QIcon(":resources/findNextActionIcon.png"), "Find next...");//           TODO: Not working yet
+    find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");
+    findDialog = new FindDialog(this);
     selectAll = editMenu->addAction(QIcon(":resources/selectAllActionIcon.png"), "Select all");
     dateTime = editMenu->addAction(QIcon(":resources/insertDateActionIcon.png"), "Insert date");
 
@@ -76,6 +81,14 @@ MainWindow::MainWindow(QWidget *parent)
         message.setFont(QFont("Roboto", 14));
         message.exec();
     });
+
+    connect(find, &QAction::triggered, [this](){
+        findDialog->show();
+        findDialog->raise();
+        findDialog->activateWindow();
+    });
+    connect(findDialog, &FindDialog::findNext, this, &MainWindow::findNext);
+    connect(findDialog, &FindDialog::findPrev, this, &MainWindow::findPrev);
 
     connect(dateTime, &QAction::triggered, [this](){
         QTextCursor cursor = textEdit->textCursor();
@@ -226,5 +239,39 @@ void MainWindow::keyPressEvent(QKeyEvent *e) {
 
     default:
         QMainWindow::keyPressEvent(e);
+    }
+}
+
+void MainWindow::findNext(const QString &str, bool caseSensitive)
+{
+    QTextDocument::FindFlags options;
+    if (caseSensitive)
+        options |= QTextDocument::FindCaseSensitively;
+
+    bool found = textEdit->find(str, options);
+    if (!found) {
+        QMessageBox::information(this, tr("Find"),
+                                 tr("Cannot find \"%1\"").arg(str));
+        // Вернуть курсор в начало для цикличного поиска, если нужно
+        QTextCursor cursor = textEdit->textCursor();
+        cursor.movePosition(QTextCursor::Start);
+        textEdit->setTextCursor(cursor);
+    }
+}
+
+void MainWindow::findPrev(const QString &str, bool caseSensitive)
+{
+    QTextDocument::FindFlags options = QTextDocument::FindBackward;
+    if (caseSensitive)
+        options |= QTextDocument::FindCaseSensitively;
+
+    bool found = textEdit->find(str, options);
+    if (!found) {
+        QMessageBox::information(this, tr("Find"),
+                                 tr("Cannot find \"%1\"").arg(str));
+        // Вернуть курсор в конец для цикличного поиска назад, если нужно
+        QTextCursor cursor = textEdit->textCursor();
+        cursor.movePosition(QTextCursor::End);
+        textEdit->setTextCursor(cursor);
     }
 }

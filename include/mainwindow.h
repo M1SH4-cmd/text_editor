@@ -1,28 +1,36 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <find_dialog_window.h>
+
 #include <QMainWindow>
-#include <QTextEdit>
+#include <QIcon>
+#include <QApplication>
+
+#include <QDate>
+#include <QTimer>
+
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QPushButton>
+
+#include <QTextEdit>
+#include <QFontDatabase>
+#include <QPalette>
+#include <QTextDocumentWriter>
+#include <QSpinBox>
 #include <QComboBox>
 #include <QToolBar>
 #include <QMenuBar>
-#include <QSpinBox>
+
 #include <QDir>
 #include <QFileDialog>
-#include <QDialog>
 #include <QFile>
-#include <QFontDatabase>
-#include <QTextDocumentWriter>
+
 #include <QMessageBox>
 #include <QKeyEvent>
 #include <QStatusBar>
-#include <QDate>
-#include <QApplication>
-#include <QTimer>
-#include <QIcon>
+
+
 
 class MainWindow : public QMainWindow
 {
@@ -38,6 +46,10 @@ public:
     void saveFile();
     void keyPressEvent(QKeyEvent *e);
 
+private slots:
+    void findNext(const QString &str, bool cs);
+    void findPrev(const QString &str, bool cs);
+
 private:
     QString text;
     QString bufferFilePath;
@@ -46,7 +58,9 @@ private:
     QWidget *centralWidget;
 
     QTextEdit *textEdit;
+    QPalette p;
     QVBoxLayout *overallLayout;
+    FindDialog *findDialog;
 
     QToolBar *btnToolBar;
 
@@ -66,7 +80,6 @@ private:
     QAction *aboutAction;
 
     QAction *find;
-    QAction *findNext;
     QAction *selectAll;
     QAction *dateTime;
 };

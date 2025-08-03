@@ -24,7 +24,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         ${RESOURCE_FILES}
         resources.qrc
-        include/find_dialog.h
+        include/find_dialog_window.h
+        src/find_dialog_window.cpp
     )
 else()
     if(ANDROID)
