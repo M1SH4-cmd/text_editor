@@ -7,9 +7,10 @@ A simple text editor application built with Qt framework
 ## Features
 
 - Open, edit and save text files
-- Save files with different formats/locations (Save As)
+- Save files with different locations (Save As)
 - Font selection and size adjustment
 - Basic file operations via menu and toolbar
+- Find in text function
 
 ## Code Structure
 
