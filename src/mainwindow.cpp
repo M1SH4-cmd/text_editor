@@ -34,17 +34,17 @@ MainWindow::MainWindow(QWidget *parent)
     saveAction = fileMenu->addAction(QIcon(":resources/saveActionIcon.png"), "Save");
     saveAsAction = fileMenu->addAction(QIcon(":resources/saveAsActionIcon.png"), "Save as...");
 
-    helpMenu = menuBar->addMenu("Help");
-
-    controlsAction = helpMenu->addAction(QIcon(":resources/controlsActionIcon.png"), "Controls");
-    aboutAction = helpMenu->addAction(QIcon(":resources/aboutActionIcon.png"), "About...");
-
     editMenu = menuBar->addMenu("Edit");
 
     find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");
     findDialog = new FindDialog(this);
     selectAll = editMenu->addAction(QIcon(":resources/selectAllActionIcon.png"), "Select all");
     dateTime = editMenu->addAction(QIcon(":resources/insertDateActionIcon.png"), "Insert date");
+
+    helpMenu = menuBar->addMenu("Help");
+
+    controlsAction = helpMenu->addAction(QIcon(":resources/controlsActionIcon.png"), "Controls");
+    aboutAction = helpMenu->addAction(QIcon(":resources/aboutActionIcon.png"), "About...");
 
     overallLayout = new QVBoxLayout();
 
@@ -135,12 +135,12 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow() {}
 
 void MainWindow::open() {
-    bufferFilePath = "";
     QString path = QFileDialog::getOpenFileName(nullptr, "Open txt file",
                                                 QDir::homePath() + "/Desktop/",
                                                 "Text files (*.txt)");
     if (path.isEmpty()) return;
 
+    bufferFilePath = "";
     bufferFilePath = path;
 
     QFile file(path);
@@ -156,10 +156,9 @@ void MainWindow::open() {
 }
 
 void MainWindow::openFromWin(QString path) {
-    bufferFilePath = "";
-
     if (path.isEmpty()) return;
 
+    bufferFilePath = "";
     bufferFilePath = path;
 
     QFile file(path);
