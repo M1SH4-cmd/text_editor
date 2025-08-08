@@ -1,5 +1,6 @@
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/6YEA5652QU/moc_mainwindow.cpp: C:/Programming/Development/Projs/TextEditor/include/mainwindow.h \
   C:/Programming/Development/Projs/TextEditor/include/find_dialog_window.h \
+  C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDate \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDir \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QFile \
@@ -8,6 +9,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QRect \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSize \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSizeF \
+  C:/Qt/6.8.3/msvc2022_64/include/QtCore/QStringList \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QTimer \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20iterator.h \
@@ -206,17 +208,21 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QLabel \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QSpinBox \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QTextEdit \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QToolBar \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QVBoxLayout \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractslider.h \
@@ -236,6 +242,8 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmenu.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmessagebox.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qpushbutton.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qradiobutton.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qslider.h \

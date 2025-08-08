@@ -1,7 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <find_dialog_window.h>
+#include "find_dialog_window.h"
+#include "preferencies_dialog.h"
 
 #include <QMainWindow>
 #include <QIcon>
@@ -61,6 +62,7 @@ private:
     QPalette p;
     QVBoxLayout *overallLayout;
     FindDialog *findDialog;
+    PrefDialog *prefDialog;
 
     QToolBar *btnToolBar;
 
@@ -82,6 +84,7 @@ private:
     QAction *find;
     QAction *selectAll;
     QAction *dateTime;
+    QAction *preferenciesAction;
 };
 
 #endif

@@ -9,6 +9,10 @@
 	"INCLUDE_DIR" : "C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/include",
 	"INPUTS" : 
 	[
+		"C:/Programming/Development/Projs/TextEditor/darkThemes/DarkGreen.qss",
+		"C:/Programming/Development/Projs/TextEditor/darkThemes/DarkBlue.qss",
+		"C:/Programming/Development/Projs/TextEditor/darkThemes/DarkPurple.qss",
+		"C:/Programming/Development/Projs/TextEditor/darkThemes/DarkMaroon.qss",
 		"C:/Programming/Development/Projs/TextEditor/resources/aboutActionIcon.png",
 		"C:/Programming/Development/Projs/TextEditor/resources/saveAsActionIcon.png",
 		"C:/Programming/Development/Projs/TextEditor/resources/selectAllActionIcon.png",
@@ -18,6 +22,7 @@
 		"C:/Programming/Development/Projs/TextEditor/resources/findActionIcon.png",
 		"C:/Programming/Development/Projs/TextEditor/resources/controlsActionIcon.png",
 		"C:/Programming/Development/Projs/TextEditor/resources/openActionIcon.png",
+		"C:/Programming/Development/Projs/TextEditor/resources/prefActionIcon.png",
 		"C:/Programming/Development/Projs/TextEditor/resources/saveActionIcon.png"
 	],
 	"LOCK_FILE" : "C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/CMakeFiles/TextEditor_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",

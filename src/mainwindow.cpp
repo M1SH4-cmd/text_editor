@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 
 #include <QDebug>
-#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -36,11 +35,13 @@ MainWindow::MainWindow(QWidget *parent)
     openAction = fileMenu->addAction(QIcon(":resources/openActionIcon.png"), "Open");
     saveAction = fileMenu->addAction(QIcon(":resources/saveActionIcon.png"), "Save");
     saveAsAction = fileMenu->addAction(QIcon(":resources/saveAsActionIcon.png"), "Save as...");
+    preferenciesAction = fileMenu->addAction(QIcon(":resources/prefActionIcon.png"), "Preferencies...");
 
     editMenu = menuBar->addMenu("Edit");
 
     find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");
     findDialog = new FindDialog(this);
+    prefDialog = new PrefDialog(this);
     selectAll = editMenu->addAction(QIcon(":resources/selectAllActionIcon.png"), "Select all");
     dateTime = editMenu->addAction(QIcon(":resources/insertDateActionIcon.png"), "Insert date");
 
@@ -90,6 +91,12 @@ MainWindow::MainWindow(QWidget *parent)
         findDialog->show();
         findDialog->raise();
         findDialog->activateWindow();
+    });
+
+    connect(preferenciesAction, &QAction::triggered, [this](){
+        prefDialog->show();
+        prefDialog->raise();
+        prefDialog->activateWindow();
     });
 
     connect(findDialog, &FindDialog::findNext, this, &MainWindow::findNext);

@@ -10,5 +10,10 @@
         <file>resources/saveActionIcon.png</file>
         <file>resources/saveAsActionIcon.png</file>
         <file>resources/selectAllActionIcon.png</file>
+        <file>resources/prefActionIcon.png</file>
+        <file>darkThemes/DarkBlue.qss</file>
+        <file>darkThemes/DarkGreen.qss</file>
+        <file>darkThemes/DarkMaroon.qss</file>
+        <file>darkThemes/DarkPurple.qss</file>
     </qresource>
 </RCC>
