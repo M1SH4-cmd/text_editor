@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 
+#include <QDebug>
+#include <iostream>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -75,6 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
                                 "Redo: Ctrl + Y\n"
                                 "Save: Ctrl + S\n"
                                 "Open: Ctrl + O\n"
+                                "Insert Date: Ctrl + I\n"
                                 "Button 'Save as...' saves a new file\n"
                                 "Button 'Save' saves current opened file\n"
                                 "Button 'Open' opens selected file\n"));
@@ -87,6 +91,7 @@ MainWindow::MainWindow(QWidget *parent)
         findDialog->raise();
         findDialog->activateWindow();
     });
+
     connect(findDialog, &FindDialog::findNext, this, &MainWindow::findNext);
     connect(findDialog, &FindDialog::findPrev, this, &MainWindow::findPrev);
 
