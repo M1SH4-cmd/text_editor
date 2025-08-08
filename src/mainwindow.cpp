@@ -222,25 +222,6 @@ void MainWindow::saveAs() {
     statusBar()->showMessage("File saved: " + path, 2000);
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *e) {
-    switch(e->key()) {
-    case Qt::Key_S:
-        if (e->modifiers() & Qt::ControlModifier) {
-            saveFile();
-        }
-        break;
-
-    case Qt::Key_O:
-        if (e->modifiers() & Qt::ControlModifier) {
-            open();
-        }
-        break;
-
-    default:
-        QMainWindow::keyPressEvent(e);
-    }
-}
-
 void MainWindow::findNext(const QString &str, bool caseSensitive)
 {
     QTextDocument::FindFlags options;
@@ -272,5 +253,36 @@ void MainWindow::findPrev(const QString &str, bool caseSensitive)
         QTextCursor cursor = textEdit->textCursor();
         cursor.movePosition(QTextCursor::End);
         textEdit->setTextCursor(cursor);
+    }
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *e) {
+    switch(e->key()) {
+    case Qt::Key_S:
+        if (e->modifiers() & Qt::ControlModifier) {
+            saveFile();
+        }
+        break;
+
+    case Qt::Key_O:
+        if (e->modifiers() & Qt::ControlModifier) {
+            open();
+        }
+        break;
+
+    case Qt::Key_F:
+        if (e->modifiers() & Qt::ControlModifier) {
+            find->trigger();
+        }
+        break;
+
+    case Qt::Key_I:
+        if (e->modifiers() & Qt::ControlModifier) {
+            dateTime->trigger();
+        }
+        break;
+
+    default:
+        QMainWindow::keyPressEvent(e);
     }
 }
