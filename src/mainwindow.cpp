@@ -63,6 +63,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     btnToolBar = new QToolBar();
     btnToolBar->addWidget(fontComboBox);
+    QWidget *spacer = new QWidget();
+    spacer->setFixedWidth(10);  // ширина пробела между виджетами в 10 пикселей
+    spacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+
+    btnToolBar->addWidget(spacer);
+
     btnToolBar->addWidget(fontValue);
 
     overallLayout->setMenuBar(menuBar);

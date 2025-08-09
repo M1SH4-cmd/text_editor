@@ -902,15 +902,15 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "TextEditor_autogen::@6890427a1f51a3e7e1df"
+			"id" : "TextEditor_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 81,
 			"id" : "TextEditor_qmlimportscan::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "TextEditor_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "TextEditor_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "TextEditor::@6890427a1f51a3e7e1df",
