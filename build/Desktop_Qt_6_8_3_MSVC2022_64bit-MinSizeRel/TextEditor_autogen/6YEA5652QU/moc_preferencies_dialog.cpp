@@ -39,8 +39,11 @@ struct qt_meta_tag_ZN10PrefDialogE_t {};
 #ifdef QT_MOC_HAS_STRINGDATA
 static constexpr auto qt_meta_stringdata_ZN10PrefDialogE = QtMocHelpers::stringData(
     "PrefDialog",
-    "applyTheme",
+    "settingsChanged",
     "",
+    "CFG",
+    "newCfg",
+    "applyTheme",
     "themeName"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -53,18 +56,24 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10PrefDialogE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    1,   26,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x08,    1 /* Private */,
+       5,    1,   29,    2, 0x08,    3 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString,    6,
 
        0        // eod
 };
@@ -78,6 +87,9 @@ Q_CONSTINIT const QMetaObject PrefDialog::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_tag_ZN10PrefDialogE_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<PrefDialog, std::true_type>,
+        // method 'settingsChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const CFG &, std::false_type>,
         // method 'applyTheme'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
@@ -90,8 +102,19 @@ void PrefDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<PrefDialog *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->applyTheme((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 0: _t->settingsChanged((*reinterpret_cast< std::add_pointer_t<CFG>>(_a[1]))); break;
+        case 1: _t->applyTheme((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _q_method_type = void (PrefDialog::*)(const CFG & );
+            if (_q_method_type _q_method = &PrefDialog::settingsChanged; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
         }
     }
 }
@@ -115,15 +138,22 @@ int PrefDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
+}
+
+// SIGNAL 0
+void PrefDialog::settingsChanged(const CFG & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

@@ -49,21 +49,25 @@ public:
     void saveFile();
     void keyPressEvent(QKeyEvent *e);
 
+
 private slots:
     void findNext(const QString &str, bool cs);
     void findPrev(const QString &str, bool cs);
+    void onSettingsChanged(const CFG &newCfg); // Обработчик изменений настроек
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
+    //void resizeEvent(QResizeEvent *event) override;
 
 private:
+    void applyCFG(const CFG &cfg);
+
     QString text;
     QString bufferFilePath;
     QStringList fonts;
 
     QString currentTheme;
-    JSONParser parserMain;
-    CFG cfg;
+    //JSONParser &m_parser;
+    CFG currentCfg;
 
     QWidget *centralWidget;
 

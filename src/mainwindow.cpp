@@ -9,6 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setWindowIcon(QIcon(":/resources/mainWindowIcon.png"));
 
+    prefDialog = new PrefDialog(this);
+    currentCfg = prefDialog->currentCFG();
+    connect(prefDialog, &PrefDialog::settingsChanged, this, &MainWindow::onSettingsChanged);
+
+    onSettingsChanged(prefDialog->currentCFG());
+
     QTimer *timer = new QTimer(this);
     timer->start(10000);
     connect(timer, &QTimer::timeout, [this, timer](){
@@ -43,13 +49,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");
     findDialog = new FindDialog(this);
-    prefDialog = new PrefDialog(this);
-
-    currentTheme = prefDialog->getTheme();
-    cfg.theme = currentTheme.toStdString();
-
-    parserMain = prefDialog->getParser();
-
 
     selectAll = editMenu->addAction(QIcon(":resources/selectAllActionIcon.png"), "Select all");
     dateTime = editMenu->addAction(QIcon(":resources/insertDateActionIcon.png"), "Insert date");
@@ -123,9 +122,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(selectAll, &QAction::triggered, [this](){
-        auto e = new QKeyEvent(QKeyEvent::KeyPress, Qt::Key_A, Qt::ControlModifier);
-        QApplication::sendEvent(textEdit, e);
-        delete e;
+        textEdit->selectAll();
     });
 
     connect(aboutAction, &QAction::triggered, [](){
@@ -284,21 +281,35 @@ void MainWindow::findPrev(const QString &str, bool caseSensitive)
     }
 }
 
-void MainWindow::resizeEvent(QResizeEvent *event)
-{
-    QSize newSize = event->size();
-    QSize oldSize = event->oldSize();
-
-    cfg.width = newSize.width();
-    cfg.height = newSize.height();
-    cfg.maximized = QMainWindow::isMaximized();
-
-    // qDebug() << "MainWindow resized: " << newSize; // Логгирование
-    parserMain.saveSettings("config.json", cfg);
-
-    // Важно: вызвать базовую реализацию
-    QMainWindow::resizeEvent(event);
+void MainWindow::onSettingsChanged(const CFG &newCfg) {
+    currentCfg = newCfg;
+    applyCFG(currentCfg);
 }
+
+void MainWindow::applyCFG(const CFG &cfg) {
+    setWindowState(Qt::WindowNoState);
+    resize(cfg.width, cfg.height);
+    if (cfg.maximized) {
+        setWindowState(Qt::WindowMaximized);
+    }
+    currentTheme = QString::fromStdString(cfg.theme);
+}
+
+// void MainWindow::resizeEvent(QResizeEvent *event)
+// {
+//     QSize newSize = event->size();
+//     QSize oldSize = event->oldSize();
+
+//     cfg.width = newSize.width();
+//     cfg.height = newSize.height();
+//     cfg.maximized = QMainWindow::isMaximized();
+
+//     // qDebug() << "MainWindow resized: " << newSize; // Логгирование
+//     m_parser.saveSettings("config.json", cfg);
+
+//     // Важно: вызвать базовую реализацию
+//     QMainWindow::resizeEvent(event);
+// }
 
 void MainWindow::keyPressEvent(QKeyEvent *e) {
     switch(e->key()) {

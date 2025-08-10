@@ -4,6 +4,7 @@
 #include <nlohmann\json.hpp>
 #include <fstream>
 #include <map>
+#include <mutex>
 
 #include <QMessageBox>
 #include <QPushButton>
@@ -12,22 +13,42 @@ using json = nlohmann::json;
 
 
 struct CFG {
+    CFG(){};
+    // CFG(std::string theme, int width, int height, bool maximized, std::string sizeType) {
+    //     this->theme = theme;
+    //     this->width = width;
+    //     this->height = height;
+    //     this->maximized = maximized;
+    //     this->sizeType = sizeType;
+    // };
     std::string theme;
     int width;
     int height;
     bool maximized;
-    QString sizeType;
+    std::string sizeType;
 };
 
 class JSONParser {
 
 public:
-    JSONParser();
+
+    // Singleton pattern
+    static JSONParser& instance();
 
     void saveSettings(const std::string& filename, CFG &cfg);
     bool loadSettings(const std::string& filename, CFG &cfg);
 
+
+    // Запрет на копирование и присваивание
+    JSONParser(const JSONParser&) = delete;
+    JSONParser& operator=(const JSONParser&) = delete;
+
+
 private:
+
+    static std::mutex mtx;
+
+    JSONParser() = default; // Приватный конструктор
     QString size;
     std::map<std::string, std::string> recentFiles; // 1 - дата последнего изменения, 2 - путь к файлу
 };

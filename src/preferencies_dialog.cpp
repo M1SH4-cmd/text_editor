@@ -3,8 +3,9 @@
 #include <QResizeEvent>
 
 PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
+    JSONParser &parser = JSONParser::instance();
+
     parser.loadSettings("config.json", cfg);
-    parent->resize(cfg.width, cfg.height);
 
     PrefDialog::applyTheme(QString::fromStdString(cfg.theme));
 
@@ -31,7 +32,8 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     wndSizes = new QComboBox(this);
     wndSizes->addItem(tr("Small"));
     wndSizes->addItem(tr("Medium"));
-    wndSizes->addItem(tr("Large"));
+    wndSizes->addItem(tr("Max"));
+    wndSizes->setCurrentText(QString::fromStdString(cfg.sizeType));
     wndSizeLayout->addWidget(wndSizesLabel);
     wndSizeLayout->addWidget(wndSizes);
 
@@ -40,22 +42,25 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     auto *maximizeWndLayout = new QHBoxLayout();
     wndMaximizeLabel = new QLabel(tr("Fullscreen:"), this);
     wndMaximize = new QCheckBox(this);
-    //maximized = false;
     maximizeWndLayout->addWidget(wndMaximizeLabel);
     maximizeWndLayout->addWidget(wndMaximize);
 
     centralLayout->addLayout(maximizeWndLayout);
 
     auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok, this);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::accepted, [this, &parser](){
+        parser.saveSettings("config.json", cfg);
+        this->accept();
+    });
     //connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    connect(themesCBX, &QComboBox::currentTextChanged, [this](){
+    connect(themesCBX, &QComboBox::currentTextChanged, [this, &parser](){
         PrefDialog::applyTheme(themesCBX->currentText());
         cfg.theme = themesCBX->currentText().toStdString();
-        parser.saveSettings("config.json", cfg);
+        //parser.saveSettings("config.json", cfg);
     });
 
-    connect(wndSizes, &QComboBox::currentTextChanged, [this, parent](){
+    connect(wndSizes, &QComboBox::currentTextChanged, [this, parent, &parser](){
+        if (!parent) return;
         if (wndSizes->currentText() == "Small" && parent) {
             parent->resize(800, 600);
             cfg.maximized = false;
@@ -66,13 +71,14 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
             cfg.maximized = false;
             cfg.width = 1280;
             cfg.height = 720;
-        } else if (wndSizes->currentText() == "Large" && parent) {
-            parent->resize(1600, 900);
-            cfg.maximized = false;
-            cfg.width = 1600;
-            cfg.height = 900;
+        } else if (wndSizes->currentText() == "Max" && parent) {
+            parent->setWindowState(Qt::WindowMaximized);
+            cfg.maximized = true;
+            cfg.width = parent->width();
+            cfg.height = parent->height();
         }
-        parser.saveSettings("config.json", cfg);
+        cfg.sizeType = wndSizes->currentText().toStdString();
+        //parser.saveSettings("config.json", cfg);
     });
 
     connect(wndMaximize, &QCheckBox::checkStateChanged, [this, parent](){
@@ -103,13 +109,20 @@ void PrefDialog::applyTheme(const QString &themeName) {
     }
 }
 
-QString PrefDialog::getTheme() {
-    return QString::fromStdString(cfg.theme);
+CFG PrefDialog::currentCFG() {
+    return cfg;
 }
 
-JSONParser PrefDialog::getParser() {
-    return parser;
+void PrefDialog::applySettings() {
+    JSONParser::instance().saveSettings("config.json", cfg);
+    emit settingsChanged(cfg);
 }
 
 PrefDialog::~PrefDialog(){
+    delete themeOptLabel;
+    delete themesCBX;
+    delete wndSizesLabel;
+    delete wndSizes;
+    delete wndMaximizeLabel;
+    delete wndMaximize;
 }

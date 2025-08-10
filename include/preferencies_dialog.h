@@ -3,9 +3,6 @@
 #pragma once
 
 #include "jsonparser.h"
-class PrefDialog;
-#include "mainwindow.h"
-
 #include <QApplication>
 
 #include <QDialog>
@@ -28,15 +25,17 @@ public:
     explicit PrefDialog(QWidget *parent);
     ~PrefDialog();
 
-    QString getTheme();
-    JSONParser getParser();
+    CFG currentCFG();
+    void applySettings();
+
+signals:
+    void settingsChanged(const CFG &newCfg);
 
 private slots:
     void applyTheme(const QString &themeName);
 
 private:
     // Params in 'Preferencies'
-    JSONParser parser;
     CFG cfg;
 
     QComboBox * themesCBX;

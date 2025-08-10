@@ -2,18 +2,24 @@
 
 using json = nlohmann::json;
 
-JSONParser::JSONParser(){}
+std::mutex JSONParser::mtx;
+
+JSONParser& JSONParser::instance() {
+    static JSONParser parser; // Гарантированно создаётся один раз
+    return parser;
+}
 
 void JSONParser::saveSettings(const std::string& filename, CFG &cfg) {
     json j;
-
+    std::lock_guard<std::mutex> lock(mtx);
     // Создание полной структуры конфига
     j["config"] = {
         {"theme", cfg.theme},
         {"windowSize", {
             {"width", cfg.width},
             {"height", cfg.height},
-            {"maximized", cfg.maximized}
+            {"maximized", cfg.maximized},
+            {"sizeType", cfg.sizeType}
         }},
         {"language", "en"},
         {"additionalOptions", {
@@ -37,8 +43,12 @@ void JSONParser::saveSettings(const std::string& filename, CFG &cfg) {
 }
 
 bool JSONParser::loadSettings(const std::string& filename, CFG &cfg) {
+    std::lock_guard<std::mutex> lock(mtx);
     std::ifstream file(filename);
-    if (!file.is_open()) return false;
+    if (!file.is_open()) {
+        cfg = CFG();
+        return false;
+    };
 
     json j;
     try {
@@ -56,18 +66,26 @@ bool JSONParser::loadSettings(const std::string& filename, CFG &cfg) {
 
         if (config.contains("windowSize")) {
             const auto& windowSize = config["windowSize"];
-            cfg.width = windowSize.value("width", 800);
-            cfg.height = windowSize.value("height", 600);
-            cfg.maximized = windowSize.value("maximized", false);
+            if (windowSize.contains("width")
+            && windowSize.contains("height")
+            && windowSize.contains("maximized")
+            && windowSize.contains("sizeType")) {
+                cfg.width = windowSize.value("width", 800);
+                cfg.height = windowSize.value("height", 600);
+                cfg.maximized = windowSize.value("maximized", false);
+                cfg.sizeType = windowSize.value("sizeType", "Medium");
+            }
         } else {
             cfg.width = 800;
             cfg.height = 600;
         }
     } else {
         // Старая версия конфига для обратной совместимости
-        cfg.theme = j.value("theme", "Default");
-        cfg.width = j.value("width", 800);
-        cfg.height = j.value("height", 600);
+        cfg.theme = j["config"].value("theme", "Default");
+        cfg.width = j["config"]["windowSize"].value("width", 800);
+        cfg.height = j["config"]["windowSize"].value("height", 600);
+        cfg.maximized = j["config"]["windowSize"].value("maximized", false);
+        cfg.sizeType = j["config"]["windowSize"].value("sizeType", "Medium");
     }
 
     return true;
