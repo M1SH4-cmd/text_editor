@@ -2,6 +2,8 @@
 
 #include <QDebug>
 
+using json = nlohmann::json;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -42,6 +44,13 @@ MainWindow::MainWindow(QWidget *parent)
     find = editMenu->addAction(QIcon(":resources/findActionIcon.png"), "Find");
     findDialog = new FindDialog(this);
     prefDialog = new PrefDialog(this);
+
+    currentTheme = prefDialog->getTheme();
+    cfg.theme = currentTheme.toStdString();
+
+    parserMain = prefDialog->getParser();
+
+
     selectAll = editMenu->addAction(QIcon(":resources/selectAllActionIcon.png"), "Select all");
     dateTime = editMenu->addAction(QIcon(":resources/insertDateActionIcon.png"), "Insert date");
 
@@ -273,6 +282,22 @@ void MainWindow::findPrev(const QString &str, bool caseSensitive)
         cursor.movePosition(QTextCursor::End);
         textEdit->setTextCursor(cursor);
     }
+}
+
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    QSize newSize = event->size();
+    QSize oldSize = event->oldSize();
+
+    cfg.width = newSize.width();
+    cfg.height = newSize.height();
+    cfg.maximized = QMainWindow::isMaximized();
+
+    // qDebug() << "MainWindow resized: " << newSize; // Логгирование
+    parserMain.saveSettings("config.json", cfg);
+
+    // Важно: вызвать базовую реализацию
+    QMainWindow::resizeEvent(event);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e) {

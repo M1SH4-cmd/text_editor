@@ -266,6 +266,7 @@ TextEditor_autogen/timestamp: \
 	C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs_win.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication \
+	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QCheckBox \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialogButtonBox \
@@ -289,6 +290,7 @@ TextEditor_autogen/timestamp: \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractspinbox.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qapplication.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qboxlayout.h \
+	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcheckbox.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcombobox.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialog.h \
 	C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialogbuttonbox.h \

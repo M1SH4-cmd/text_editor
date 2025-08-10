@@ -1,7 +1,10 @@
 #ifndef PREFERENCIES_DIALOG_H
 #define PREFERENCIES_DIALOG_H
+#pragma once
 
 #include "jsonparser.h"
+class PrefDialog;
+#include "mainwindow.h"
 
 #include <QApplication>
 
@@ -12,6 +15,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QCheckBox>
 #include <QStringList>
 #include <QDialogButtonBox>
 #include <QFile>
@@ -24,24 +28,24 @@ public:
     explicit PrefDialog(QWidget *parent);
     ~PrefDialog();
 
+    QString getTheme();
+    JSONParser getParser();
+
 private slots:
     void applyTheme(const QString &themeName);
 
 private:
     // Params in 'Preferencies'
-    QString theme;
-    std::string themeCfg;
-    int width;
-    int height;
     JSONParser parser;
-    bool maximized;
-
-
+    CFG cfg;
 
     QComboBox * themesCBX;
     QComboBox *wndSizes;
+    QCheckBox *wndMaximize;
     QLabel *themeOptLabel;
     QLabel *wndSizesLabel;
+    QLabel *wndMaximizeLabel;
+
     QStringList themesList = {{"Default"}, {"DarkBlue"}, {"DarkGreen"}, {"DarkMaroon"}, {"DarkPurple"}};
 
 };

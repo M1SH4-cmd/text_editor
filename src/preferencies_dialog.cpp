@@ -1,11 +1,12 @@
 #include "preferencies_dialog.h"
+
 #include <QResizeEvent>
 
 PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
-    parser.loadSettings("config.json", themeCfg, width, height);
+    parser.loadSettings("config.json", cfg);
+    parent->resize(cfg.width, cfg.height);
 
-    theme = QString::fromStdString(themeCfg);
-    PrefDialog::applyTheme(theme);
+    PrefDialog::applyTheme(QString::fromStdString(cfg.theme));
 
     setWindowTitle(tr("Preferences"));
 
@@ -18,7 +19,7 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     themesCBX->addItems(themesList);
 
     //сохранённый выбор
-    themesCBX->setCurrentText(theme);
+    themesCBX->setCurrentText(QString::fromStdString(cfg.theme));
 
     themeOptLayout->addWidget(themeOptLabel);
     themeOptLayout->addWidget(themesCBX);
@@ -31,38 +32,57 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     wndSizes->addItem(tr("Small"));
     wndSizes->addItem(tr("Medium"));
     wndSizes->addItem(tr("Large"));
-    maximized = false;
     wndSizeLayout->addWidget(wndSizesLabel);
     wndSizeLayout->addWidget(wndSizes);
 
     centralLayout->addLayout(wndSizeLayout);
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *maximizeWndLayout = new QHBoxLayout();
+    wndMaximizeLabel = new QLabel(tr("Fullscreen:"), this);
+    wndMaximize = new QCheckBox(this);
+    //maximized = false;
+    maximizeWndLayout->addWidget(wndMaximizeLabel);
+    maximizeWndLayout->addWidget(wndMaximize);
+
+    centralLayout->addLayout(maximizeWndLayout);
+
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok, this);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    //connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(themesCBX, &QComboBox::currentTextChanged, [this](){
         PrefDialog::applyTheme(themesCBX->currentText());
-        parser.saveSettings("config.json", themesCBX->currentText().toStdString(), width, height);
+        cfg.theme = themesCBX->currentText().toStdString();
+        parser.saveSettings("config.json", cfg);
     });
 
     connect(wndSizes, &QComboBox::currentTextChanged, [this, parent](){
         if (wndSizes->currentText() == "Small" && parent) {
             parent->resize(800, 600);
-            maximized = false;
-            width = 800;
-            height = 600;
+            cfg.maximized = false;
+            cfg.width = 800;
+            cfg.height = 600;
         } else if (wndSizes->currentText() == "Medium" && parent) {
             parent->resize(1280, 720);
-            maximized = false;
-            width = 1280;
-            height = 720;
+            cfg.maximized = false;
+            cfg.width = 1280;
+            cfg.height = 720;
         } else if (wndSizes->currentText() == "Large" && parent) {
-            parent->setWindowState(Qt::WindowMaximized);
-            maximized = true;
-            width = parent->width();
-            height = parent->height();
+            parent->resize(1600, 900);
+            cfg.maximized = false;
+            cfg.width = 1600;
+            cfg.height = 900;
         }
-        parser.saveSettings("config.json", themesCBX->currentText().toStdString(), width, height);
+        parser.saveSettings("config.json", cfg);
+    });
+
+    connect(wndMaximize, &QCheckBox::checkStateChanged, [this, parent](){
+        cfg.maximized = wndMaximize->isChecked();
+        if (cfg.maximized) {
+            parent->setWindowState(Qt::WindowFullScreen);
+        } else {
+            parent->setWindowState(Qt::WindowNoState);
+            parent->resize(cfg.width, cfg.height);
+        }
     });
 
     centralLayout->addWidget(buttonBox);
@@ -81,6 +101,14 @@ void PrefDialog::applyTheme(const QString &themeName) {
             qDebug() << "Could not open theme file:" << themeName;
         }
     }
+}
+
+QString PrefDialog::getTheme() {
+    return QString::fromStdString(cfg.theme);
+}
+
+JSONParser PrefDialog::getParser() {
+    return parser;
 }
 
 PrefDialog::~PrefDialog(){

@@ -420,6 +420,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QCheckBox
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialogButtonBox
@@ -443,6 +444,7 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractspinbox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qapplication.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qboxlayout.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcheckbox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialogbuttonbox.h
@@ -475,7 +477,9 @@ C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qwidget.h
 C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mmc:Q_OBJECT
+ mdp:C:/Programming/Development/Projs/TextEditor/include/find_dialog_window.h
  mdp:C:/Programming/Development/Projs/TextEditor/include/jsonparser.h
+ mdp:C:/Programming/Development/Projs/TextEditor/include/mainwindow.h
  mdp:C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mdp:C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/adl_serializer.hpp
  mdp:C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/byte_container_with_subtype.hpp
@@ -523,8 +527,16 @@ C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mdp:C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/ordered_map.hpp
  mdp:C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/thirdparty/hedley/hedley.hpp
  mdp:C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDate
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDir
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QFile
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QList
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QObject
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QRect
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSize
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QSizeF
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QStringList
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/QTimer
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20functional.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20iterator.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20memory.h
@@ -541,11 +553,13 @@ C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qatomic.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qatomic_cxx11.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbasicatomic.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbasictimer.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbindingstorage.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearray.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearrayalgorithms.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearraylist.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qbytearrayview.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qcalendar.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qchar.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qcompare.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qcompare_impl.h
@@ -562,14 +576,18 @@ C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qcoreevent.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdarwinhelpers.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdatastream.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdatetime.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdeadlinetimer.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdebug.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdir.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qdirlisting.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qelapsedtimer.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qendian.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qeventloop.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qexceptionhandling.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qfile.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qfiledevice.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qfileinfo.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qflags.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qfloat16.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qforeach.h
@@ -643,6 +661,8 @@ C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtdeprecationmarkers.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtenvironmentvariables.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtextstream.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtimer.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtimezone.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtmetamacros.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtnoop.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qtpreprocessorsupport.h
@@ -660,71 +680,109 @@ C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qversiontagging.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qxptype_traits.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtCore/qyieldcpu.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QFontDatabase
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QIcon
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QKeyEvent
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QPalette
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QTextDocumentWriter
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/QTransform
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qaction.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qbitmap.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qbrush.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qcolor.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qcursor.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qevent.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qeventpoint.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qfont.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qfontdatabase.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qfontinfo.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qfontmetrics.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qguiapplication.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qguiapplication_platform.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qicon.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qimage.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qinputdevice.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qinputmethod.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qkeysequence.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpaintdevice.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpalette.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpen.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpicture.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpixelformat.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpixmap.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpointingdevice.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qpolygon.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qregion.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qrgb.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qrgba64.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qscreen.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qscreen_platform.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtextcursor.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtextdocument.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtextdocumentwriter.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtextformat.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtextoption.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtgui-config.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtguiexports.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtguiglobal.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qtransform.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qvalidator.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qvector2d.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qvectornd.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QCheckBox
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialogButtonBox
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QHBoxLayout
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QLabel
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QMainWindow
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QMenuBar
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QMessageBox
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QRadioButton
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QSpinBox
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QStatusBar
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QTextEdit
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QToolBar
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QVBoxLayout
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractbutton.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractitemdelegate.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractscrollarea.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractspinbox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qapplication.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qboxlayout.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcheckbox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialogbuttonbox.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qfiledialog.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qframe.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qgridlayout.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qlabel.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qlayout.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qlayoutitem.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmainwindow.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmenu.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmenubar.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qmessagebox.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qpushbutton.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qradiobutton.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qslider.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qspinbox.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qstatusbar.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qstyle.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qstyleoption.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtabbar.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtabwidget.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtextedit.h
+ mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtoolbar.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h

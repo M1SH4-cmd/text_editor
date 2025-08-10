@@ -10,13 +10,22 @@
 
 using json = nlohmann::json;
 
+
+struct CFG {
+    std::string theme;
+    int width;
+    int height;
+    bool maximized;
+    QString sizeType;
+};
+
 class JSONParser {
 
 public:
     JSONParser();
 
-    void saveSettings(const std::string& filename, const std::string& theme, int width, int height);
-    bool loadSettings(const std::string& filename, std::string& theme, int& width, int& height);
+    void saveSettings(const std::string& filename, CFG &cfg);
+    bool loadSettings(const std::string& filename, CFG &cfg);
 
 private:
     QString size;

@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#pragma once
 
 #include "find_dialog_window.h"
+class MainWindow;
 #include "preferencies_dialog.h"
 
 #include <QMainWindow>
@@ -31,7 +33,7 @@
 #include <QKeyEvent>
 #include <QStatusBar>
 
-
+using json = nlohmann::json;
 
 class MainWindow : public QMainWindow
 {
@@ -51,10 +53,17 @@ private slots:
     void findNext(const QString &str, bool cs);
     void findPrev(const QString &str, bool cs);
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     QString text;
     QString bufferFilePath;
     QStringList fonts;
+
+    QString currentTheme;
+    JSONParser parserMain;
+    CFG cfg;
 
     QWidget *centralWidget;
 

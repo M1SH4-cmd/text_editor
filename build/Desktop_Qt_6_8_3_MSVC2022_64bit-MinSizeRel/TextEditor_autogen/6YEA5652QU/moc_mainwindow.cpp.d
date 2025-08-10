@@ -1,6 +1,7 @@
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/6YEA5652QU/moc_mainwindow.cpp: C:/Programming/Development/Projs/TextEditor/include/mainwindow.h \
   C:/Programming/Development/Projs/TextEditor/include/find_dialog_window.h \
   C:/Programming/Development/Projs/TextEditor/include/jsonparser.h \
+  C:/Programming/Development/Projs/TextEditor/include/mainwindow.h \
   C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h \
   C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/adl_serializer.hpp \
   C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/byte_container_with_subtype.hpp \
@@ -253,6 +254,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QApplication \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QCheckBox \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QComboBox \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialog \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/QDialogButtonBox \
@@ -276,6 +278,7 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcheckbox.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qdialogbuttonbox.h \

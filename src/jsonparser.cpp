@@ -4,16 +4,16 @@ using json = nlohmann::json;
 
 JSONParser::JSONParser(){}
 
-void JSONParser::saveSettings(const std::string& filename, const std::string& theme, int width, int height) {
+void JSONParser::saveSettings(const std::string& filename, CFG &cfg) {
     json j;
 
     // Создание полной структуры конфига
     j["config"] = {
-        {"theme", theme},
+        {"theme", cfg.theme},
         {"windowSize", {
-            {"width", width},
-            {"height", height},
-            {"maximized", false}
+            {"width", cfg.width},
+            {"height", cfg.height},
+            {"maximized", cfg.maximized}
         }},
         {"language", "en"},
         {"additionalOptions", {
@@ -36,7 +36,7 @@ void JSONParser::saveSettings(const std::string& filename, const std::string& th
     }
 }
 
-bool JSONParser::loadSettings(const std::string& filename, std::string& theme, int& width, int& height) {
+bool JSONParser::loadSettings(const std::string& filename, CFG &cfg) {
     std::ifstream file(filename);
     if (!file.is_open()) return false;
 
@@ -52,21 +52,22 @@ bool JSONParser::loadSettings(const std::string& filename, std::string& theme, i
     if (j.contains("config")) {
         const auto& config = j["config"];
 
-        theme = config.value("theme", "Default");
+        cfg.theme = config.value("theme", "Default");
 
         if (config.contains("windowSize")) {
             const auto& windowSize = config["windowSize"];
-            width = windowSize.value("width", 800);
-            height = windowSize.value("height", 600);
+            cfg.width = windowSize.value("width", 800);
+            cfg.height = windowSize.value("height", 600);
+            cfg.maximized = windowSize.value("maximized", false);
         } else {
-            width = 800;
-            height = 600;
+            cfg.width = 800;
+            cfg.height = 600;
         }
     } else {
         // Старая версия конфига для обратной совместимости
-        theme = j.value("theme", "Default");
-        width = j.value("width", 800);
-        height = j.value("height", 600);
+        cfg.theme = j.value("theme", "Default");
+        cfg.width = j.value("width", 800);
+        cfg.height = j.value("height", 600);
     }
 
     return true;
