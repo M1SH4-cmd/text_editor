@@ -1,6 +1,53 @@
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/6YEA5652QU/moc_mainwindow.cpp: C:/Programming/Development/Projs/TextEditor/include/mainwindow.h \
   C:/Programming/Development/Projs/TextEditor/include/find_dialog_window.h \
+  C:/Programming/Development/Projs/TextEditor/include/jsonparser.h \
   C:/Programming/Development/Projs/TextEditor/include/preferencies_dialog.h \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/adl_serializer.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/byte_container_with_subtype.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/abi_macros.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/conversions/from_json.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/conversions/to_chars.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/conversions/to_json.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/exceptions.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/hash.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/input/binary_reader.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/input/input_adapters.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/input/json_sax.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/input/lexer.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/input/parser.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/input/position_t.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/iterators/internal_iterator.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/iterators/iter_impl.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/iterators/iterator_traits.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/json_custom_base_class.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/json_pointer.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/json_ref.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/macro_scope.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/macro_unscope.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/call_std/begin.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/call_std/end.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/cpp_future.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/detected.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/identity_tag.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/is_sax.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/std_fs.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/type_traits.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/meta/void_t.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/output/binary_writer.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/output/output_adapters.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/output/serializer.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/string_concat.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/string_escape.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/string_utils.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/detail/value_t.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/json.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/json_fwd.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/ordered_map.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/thirdparty/hedley/hedley.hpp \
+  C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDate \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDir \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QFile \

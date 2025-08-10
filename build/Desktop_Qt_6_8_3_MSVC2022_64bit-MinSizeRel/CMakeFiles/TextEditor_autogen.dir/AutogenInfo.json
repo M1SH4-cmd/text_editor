@@ -1221,6 +1221,12 @@
 			null
 		],
 		[
+			"C:/Programming/Development/Projs/TextEditor/include/jsonparser.h",
+			"MU",
+			"6YEA5652QU/moc_jsonparser.cpp",
+			null
+		],
+		[
 			"C:/Programming/Development/Projs/TextEditor/include/mainwindow.h",
 			"MU",
 			"6YEA5652QU/moc_mainwindow.cpp",
@@ -1268,6 +1274,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"C:/Programming/Development/Projs/TextEditor/include",
+		"C:/Programming/Development/Projs/TextEditor/lib/nlohmann_json/include",
 		"C:/Qt/6.8.3/msvc2022_64/include/QtCore",
 		"C:/Qt/6.8.3/msvc2022_64/include",
 		"C:/Qt/6.8.3/msvc2022_64/mkspecs/win32-msvc",
@@ -1310,6 +1317,11 @@
 	[
 		[
 			"C:/Programming/Development/Projs/TextEditor/src/find_dialog_window.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Programming/Development/Projs/TextEditor/src/jsonparser.cpp",
 			"MU",
 			null
 		],

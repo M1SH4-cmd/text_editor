@@ -11,10 +11,10 @@
         <file>resources/saveAsActionIcon.png</file>
         <file>resources/selectAllActionIcon.png</file>
         <file>resources/prefActionIcon.png</file>
-        <file>darkThemes/DarkBlue.qss</file>
-        <file>darkThemes/DarkGreen.qss</file>
-        <file>darkThemes/DarkMaroon.qss</file>
-        <file>darkThemes/DarkPurple.qss</file>
+        <file>themes/DarkBlue.qss</file>
+        <file>themes/DarkGreen.qss</file>
+        <file>themes/DarkMaroon.qss</file>
+        <file>themes/DarkPurple.qss</file>
         <file>icons/blue/branch_closed.png</file>
         <file>icons/blue/branch_closed_disabled.png</file>
         <file>icons/blue/branch_opened.png</file>

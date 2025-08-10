@@ -7,3 +7,8 @@ C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bi
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/CMakeFiles/install/local.dir
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/CMakeFiles/TextEditor_autogen_timestamp_deps.dir
 C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/CMakeFiles/TextEditor_autogen.dir
+C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/lib/nlohmann_json/CMakeFiles/edit_cache.dir
+C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/lib/nlohmann_json/CMakeFiles/rebuild_cache.dir
+C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/lib/nlohmann_json/CMakeFiles/list_install_components.dir
+C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/lib/nlohmann_json/CMakeFiles/install.dir
+C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/lib/nlohmann_json/CMakeFiles/install/local.dir

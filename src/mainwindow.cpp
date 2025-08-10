@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     centralWidget = new QWidget();
-    this->resize(1280, 720);
+    this->setMinimumSize(800, 600);
     textEdit = new QTextEdit();
 
     p = textEdit->palette();
@@ -116,6 +116,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(selectAll, &QAction::triggered, [this](){
         auto e = new QKeyEvent(QKeyEvent::KeyPress, Qt::Key_A, Qt::ControlModifier);
         QApplication::sendEvent(textEdit, e);
+        delete e;
     });
 
     connect(aboutAction, &QAction::triggered, [](){

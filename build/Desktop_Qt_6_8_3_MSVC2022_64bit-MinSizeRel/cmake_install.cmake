@@ -32,6 +32,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/lib/nlohmann_json/cmake_install.cmake")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor.exe")
 endif()

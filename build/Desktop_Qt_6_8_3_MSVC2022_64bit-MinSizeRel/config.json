@@ -1,0 +1,19 @@
+{
+    "config": {
+        "additionalOptions": {
+            "autoSave": true,
+            "showLineNumbers": true,
+            "showWorkCount": true
+        },
+        "language": "en",
+        "theme": "DarkBlue",
+        "windowSize": {
+            "height": 720,
+            "maximized": false,
+            "width": 1280
+        }
+    },
+    "filesCfg": {
+        "recentFiles": []
+    }
+}

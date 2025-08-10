@@ -1,6 +1,8 @@
 #ifndef PREFERENCIES_DIALOG_H
 #define PREFERENCIES_DIALOG_H
 
+#include "jsonparser.h"
+
 #include <QApplication>
 
 #include <QDialog>
@@ -19,14 +21,24 @@ class PrefDialog : public QDialog
 Q_OBJECT;
 
 public:
-    explicit PrefDialog(QWidget *parent = nullptr);
+    explicit PrefDialog(QWidget *parent);
+    ~PrefDialog();
 
 private slots:
     void applyTheme(const QString &themeName);
 
 private:
-    QComboBox * themesCBX;
+    // Params in 'Preferencies'
     QString theme;
+    std::string themeCfg;
+    int width;
+    int height;
+    JSONParser parser;
+    bool maximized;
+
+
+
+    QComboBox * themesCBX;
     QComboBox *wndSizes;
     QLabel *themeOptLabel;
     QLabel *wndSizesLabel;

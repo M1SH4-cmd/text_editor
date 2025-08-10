@@ -1,7 +1,12 @@
 #include "preferencies_dialog.h"
-
+#include <QResizeEvent>
 
 PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
+    parser.loadSettings("config.json", themeCfg, width, height);
+
+    theme = QString::fromStdString(themeCfg);
+    PrefDialog::applyTheme(theme);
+
     setWindowTitle(tr("Preferences"));
 
     auto *centralLayout = new QVBoxLayout(this);
@@ -12,8 +17,8 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     themesCBX = new QComboBox();
     themesCBX->addItems(themesList);
 
-    //выбор по умолчанию
-    themesCBX->setCurrentText("Default");
+    //сохранённый выбор
+    themesCBX->setCurrentText(theme);
 
     themeOptLayout->addWidget(themeOptLabel);
     themeOptLayout->addWidget(themesCBX);
@@ -26,6 +31,7 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     wndSizes->addItem(tr("Small"));
     wndSizes->addItem(tr("Medium"));
     wndSizes->addItem(tr("Large"));
+    maximized = false;
     wndSizeLayout->addWidget(wndSizesLabel);
     wndSizeLayout->addWidget(wndSizes);
 
@@ -34,7 +40,30 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
     auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    connect(themesCBX, &QComboBox::currentTextChanged, this, &PrefDialog::applyTheme);
+    connect(themesCBX, &QComboBox::currentTextChanged, [this](){
+        PrefDialog::applyTheme(themesCBX->currentText());
+        parser.saveSettings("config.json", themesCBX->currentText().toStdString(), width, height);
+    });
+
+    connect(wndSizes, &QComboBox::currentTextChanged, [this, parent](){
+        if (wndSizes->currentText() == "Small" && parent) {
+            parent->resize(800, 600);
+            maximized = false;
+            width = 800;
+            height = 600;
+        } else if (wndSizes->currentText() == "Medium" && parent) {
+            parent->resize(1280, 720);
+            maximized = false;
+            width = 1280;
+            height = 720;
+        } else if (wndSizes->currentText() == "Large" && parent) {
+            parent->setWindowState(Qt::WindowMaximized);
+            maximized = true;
+            width = parent->width();
+            height = parent->height();
+        }
+        parser.saveSettings("config.json", themesCBX->currentText().toStdString(), width, height);
+    });
 
     centralLayout->addWidget(buttonBox);
 }
@@ -43,7 +72,7 @@ void PrefDialog::applyTheme(const QString &themeName) {
     if (themeName == "Default") {
         qApp->setStyleSheet("");
     } else {
-        QFile themeFile(QString(":/darkThemes/%1.qss").arg(themeName));
+        QFile themeFile(QString(":/themes/%1.qss").arg(themeName));
         if (themeFile.open(QFile::ReadOnly)) {
             QString styleSheet = themeFile.readAll();
             qApp->setStyleSheet(styleSheet);
@@ -52,4 +81,7 @@ void PrefDialog::applyTheme(const QString &themeName) {
             qDebug() << "Could not open theme file:" << themeName;
         }
     }
+}
+
+PrefDialog::~PrefDialog(){
 }
