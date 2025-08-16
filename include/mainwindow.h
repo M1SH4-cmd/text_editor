@@ -3,7 +3,6 @@
 #pragma once
 
 #include "find_dialog_window.h"
-class MainWindow;
 #include "preferencies_dialog.h"
 
 #include <QMainWindow>
@@ -33,6 +32,9 @@ class MainWindow;
 #include <QKeyEvent>
 #include <QStatusBar>
 
+#include <memory>
+#include <vector>
+
 using json = nlohmann::json;
 
 class MainWindow : public QMainWindow
@@ -49,6 +51,7 @@ public:
     void saveFile();
     void keyPressEvent(QKeyEvent *e);
 
+    int wordsCounter(const std::string &str);
 
 private slots:
     void findNext(const QString &str, bool cs);
@@ -66,7 +69,6 @@ private:
     QStringList fonts;
 
     QString currentTheme;
-    //JSONParser &m_parser;
     CFG currentCfg;
 
     QWidget *centralWidget;

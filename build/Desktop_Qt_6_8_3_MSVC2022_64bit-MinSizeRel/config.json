@@ -6,12 +6,12 @@
             "showWorkCount": true
         },
         "language": "en",
-        "theme": "DarkBlue",
+        "theme": "DarkMaroon",
         "windowSize": {
-            "height": 600,
+            "height": 720,
             "maximized": false,
-            "sizeType": "Small",
-            "width": 800
+            "sizeType": "Medium",
+            "width": 1280
         }
     },
     "filesCfg": {

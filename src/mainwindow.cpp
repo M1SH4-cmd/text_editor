@@ -79,9 +79,32 @@ MainWindow::MainWindow(QWidget *parent)
 
     btnToolBar->addWidget(fontValue);
 
+    auto *wordSymCount = new QHBoxLayout();
+    QLabel *wordLabel = new QLabel();
+    QLabel *symLabel = new QLabel();
+    wordSymCount->addWidget(wordLabel);
+    wordSymCount->addWidget(symLabel);
+    wordSymCount->addStretch();
+    wordSymCount->setSpacing(10);
+
     overallLayout->setMenuBar(menuBar);
     overallLayout->addWidget(btnToolBar);
     overallLayout->addWidget(textEdit);
+    overallLayout->addLayout(wordSymCount);
+
+
+    connect(textEdit, &QTextEdit::textChanged, [this, wordLabel, symLabel](){
+        QString str = textEdit->toPlainText();
+        int wrdc = 0;
+        int i = 0;
+
+        for (; i < str.length(); i++) {
+        }
+
+        wrdc = wordsCounter(str.toStdString());
+        wordLabel->setText(QString::fromStdString("Words: " + std::to_string(wrdc)));
+        symLabel->setText(QString::fromStdString("Symbols: " + std::to_string(i)));
+    });
 
     connect(openAction, &QAction::triggered, this, &MainWindow::open);
     connect(saveAction, &QAction::triggered, this, &MainWindow::saveFile);
@@ -310,6 +333,35 @@ void MainWindow::applyCFG(const CFG &cfg) {
 //     // Важно: вызвать базовую реализацию
 //     QMainWindow::resizeEvent(event);
 // }
+
+int MainWindow::wordsCounter(const std::string &str) {  // на вход подаётся строка
+    if (str.size() == 1 or str.empty()) return 0; // если строка не содержит слов - возвращаем ноль
+
+    std::vector<size_t> pos_of_dividers = {};   // создаём массив для фиксирования индексов разделителей в строке
+
+    for (size_t i = 0; i < str.size(); ++i) {   // в цикле ищем разделители и добавляем значения индексов в массив
+        if (str[i] == ' ' or str[i] == ',' or str[i] == '.')
+            pos_of_dividers.push_back(i);
+    }
+
+    if (pos_of_dividers.empty()) return 1;  // если разделители не удалось найти, то строка состоит из одного слова
+
+    int number_of_words = 2;    // первое и последнее слово, т.к. у нас варианты,
+        //в которых строка всегда начинается со слова и заканчивается словом,
+        //а варианты с пустой строкой и одним словом мы уже учли
+
+    for (size_t i = 0; i < pos_of_dividers.size() - 1; ++i) {       //вычитаем единицу, чтобы не выйти за границы массива,
+        // т.к. через i мы будем получать доступ к его элементам, причем
+        size_t first_index_of_divider = pos_of_dividers[i];         //в последнем прогоне это будет предпоследний элемент
+        size_t second_index_of_divider = pos_of_dividers[i + 1];    // а это последний
+        if (second_index_of_divider - first_index_of_divider != 1) { //проверяем, что между разделителями что-то есть
+            ++number_of_words;
+        }
+    }
+
+    return number_of_words;
+}
+
 
 void MainWindow::keyPressEvent(QKeyEvent *e) {
     switch(e->key()) {
