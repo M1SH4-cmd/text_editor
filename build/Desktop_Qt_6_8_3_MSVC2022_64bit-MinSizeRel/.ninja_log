@@ -27,3 +27,15 @@
 1456	5121	7770628558968930	CMakeFiles/TextEditor.dir/TextEditor_autogen/mocs_compilation.cpp.obj	f2c9996965399560
 1463	5249	7770628559048916	CMakeFiles/TextEditor.dir/src/mainwindow.cpp.obj	7e4bb7fe3806789d
 5250	5470	7770628596915207	TextEditor.exe	e1fd9e5d7a6c0269
+63	211	7770633816177136	TextEditor_autogen/timestamp	31337bf5bc2ab211
+63	211	7770633816177136	TextEditor_autogen/mocs_compilation.cpp	31337bf5bc2ab211
+63	211	7770633816177136	C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/timestamp	31337bf5bc2ab211
+63	211	7770633816177136	C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/mocs_compilation.cpp	31337bf5bc2ab211
+213	3413	7770633817677144	CMakeFiles/TextEditor.dir/src/mainwindow.cpp.obj	7e4bb7fe3806789d
+3413	3553	7770633849677454	TextEditor.exe	e1fd9e5d7a6c0269
+138	318	7780323332379980	TextEditor_autogen/timestamp	31337bf5bc2ab211
+138	318	7780323332379980	TextEditor_autogen/mocs_compilation.cpp	31337bf5bc2ab211
+138	318	7780323332379980	C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/timestamp	31337bf5bc2ab211
+138	318	7780323332379980	C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/TextEditor_autogen/mocs_compilation.cpp	31337bf5bc2ab211
+321	3634	7780323334205319	CMakeFiles/TextEditor.dir/src/preferencies_dialog.cpp.obj	370cc7aaa1799499
+3634	4060	7780323367337319	TextEditor.exe	e1fd9e5d7a6c0269
