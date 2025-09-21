@@ -61,6 +61,7 @@ TextEditor_autogen/timestamp: \
 	C:/Programming/Development/Projs/TextEditor/src/main.cpp \
 	C:/Programming/Development/Projs/TextEditor/src/mainwindow.cpp \
 	C:/Programming/Development/Projs/TextEditor/src/preferencies_dialog.cpp \
+	C:/Programming/Development/Projs/TextEditor/translations.qrc \
 	C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDate \
 	C:/Qt/6.8.3/msvc2022_64/include/QtCore/QDir \
 	C:/Qt/6.8.3/msvc2022_64/include/QtCore/QFile \

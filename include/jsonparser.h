@@ -19,6 +19,7 @@ struct CFG {
     int height;
     bool maximized;
     std::string sizeType;
+    std::string language;
 };
 
 class JSONParser {

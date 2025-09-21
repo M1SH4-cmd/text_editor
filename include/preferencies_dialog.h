@@ -38,14 +38,19 @@ private:
     // Params in 'Preferencies'
     CFG cfg;
 
-    QComboBox * themesCBX;
+    QComboBox *themesCBX;
+    QComboBox *languagesCBX;
+
     QComboBox *wndSizes;
     QCheckBox *wndMaximize;
+
+    QLabel *languagesLabel;
     QLabel *themeOptLabel;
     QLabel *wndSizesLabel;
     QLabel *wndMaximizeLabel;
 
     QStringList themesList = {{"Default"}, {"DarkBlue"}, {"DarkGreen"}, {"DarkMaroon"}, {"DarkPurple"}};
+    QStringList languagesList = {{"English"}, {"Russian"}};
 
 };
 

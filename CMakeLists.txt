@@ -16,8 +16,13 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Gui Core QuickCon
 
 add_subdirectory(lib/nlohmann_json)
 
+# qt_add_translations(TextEditor TS_FILES
+#   translations/TextEditor_ru_RU.ts
+# )
+
 set(PROJECT_SOURCES
         resources.qrc
+        translations.qrc
         src/main.cpp
 
         src/mainwindow.cpp
@@ -78,6 +83,7 @@ target_link_libraries(TextEditor PRIVATE
   Qt${QT_VERSION_MAJOR}::Core
   Qt${QT_VERSION_MAJOR}::Gui
   Qt${QT_VERSION_MAJOR}::QuickControls2
+  # Qt${QT_VERSION_MAJOR}::Linguisttools
 )
 
 if(${QT_VERSION} VERSION_LESS 6.1.0)

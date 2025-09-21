@@ -1206,7 +1206,8 @@
 		"C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6QuickControls2/Qt6QuickControls2VersionlessAliasTargets.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
 		"C:/Programming/Development/Projs/TextEditor/build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/.qt/qml_imports/TextEditor_conf.cmake",
-		"C:/Programming/Development/Projs/TextEditor/resources.qrc"
+		"C:/Programming/Development/Projs/TextEditor/resources.qrc",
+		"C:/Programming/Development/Projs/TextEditor/translations.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Programming/Development/Projs/TextEditor",
 	"CROSS_CONFIG" : false,

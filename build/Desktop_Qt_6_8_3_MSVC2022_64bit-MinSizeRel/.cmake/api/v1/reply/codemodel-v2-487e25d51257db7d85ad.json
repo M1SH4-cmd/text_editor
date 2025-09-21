@@ -11,7 +11,7 @@
 						1
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-MinSizeRel-e6011ecd47f0313c5872.json",
+					"jsonFile" : "directory-.-MinSizeRel-8a346393d382a43ebeec.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -73,7 +73,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TextEditor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TextEditor-MinSizeRel-dcc650c28815cfffaa4b.json",
+					"jsonFile" : "target-TextEditor-MinSizeRel-70fcfe663655b2ab4765.json",
 					"name" : "TextEditor",
 					"projectIndex" : 0
 				},
@@ -94,7 +94,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TextEditor_qmlimportscan::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TextEditor_qmlimportscan-MinSizeRel-4e28bdcc43f0f531f901.json",
+					"jsonFile" : "target-TextEditor_qmlimportscan-MinSizeRel-3561fb2a908e114a0c43.json",
 					"name" : "TextEditor_qmlimportscan",
 					"projectIndex" : 0
 				}
