@@ -913,25 +913,15 @@
 	"dependencies" : 
 	[
 		{
-<<<<<<<< HEAD:build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/.cmake/api/v1/reply/target-TextEditor-MinSizeRel-1bb6bb09cb6b8c56006c.json
-			"backtrace" : 0,
-			"id" : "TextEditor_autogen::@6890427a1f51a3e7e1df"
-		},
-		{
-========
->>>>>>>> translator_beta:build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/.cmake/api/v1/reply/target-TextEditor-MinSizeRel-05e434b284fbe5c2c69a.json
 			"backtrace" : 81,
 			"id" : "TextEditor_qmlimportscan::@6890427a1f51a3e7e1df"
 		},
 		{
-<<<<<<<< HEAD:build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/.cmake/api/v1/reply/target-TextEditor-MinSizeRel-1bb6bb09cb6b8c56006c.json
-========
-			"backtrace" : 0,
-			"id" : "TextEditor_autogen::@6890427a1f51a3e7e1df"
+			"id" : "TextEditor_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
->>>>>>>> translator_beta:build/Desktop_Qt_6_8_3_MSVC2022_64bit-MinSizeRel/.cmake/api/v1/reply/target-TextEditor-MinSizeRel-05e434b284fbe5c2c69a.json
-			"id" : "TextEditor_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "TextEditor_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "TextEditor::@6890427a1f51a3e7e1df",

@@ -62,7 +62,7 @@ bool JSONParser::loadSettings(const std::string& filename, CFG &cfg) {
     if (j.contains("config")) {
         const auto& config = j["config"];
 
-        cfg.theme = config.value("theme", "Default");
+        cfg.theme = config["theme"];
 
         if (config.contains("windowSize")) {
             const auto& windowSize = config["windowSize"];
@@ -70,15 +70,20 @@ bool JSONParser::loadSettings(const std::string& filename, CFG &cfg) {
             && windowSize.contains("height")
             && windowSize.contains("maximized")
             && windowSize.contains("sizeType")) {
-                cfg.width = windowSize.value("width", 800);
-                cfg.height = windowSize.value("height", 600);
-                cfg.maximized = windowSize.value("maximized", false);
-                cfg.sizeType = windowSize.value("sizeType", "Medium");
+                cfg.width = windowSize["width"];
+                cfg.height = windowSize["height"];
+                cfg.maximized = windowSize["maximized"];;
+                cfg.sizeType = windowSize["sizeType"];
             }
         } else {
             cfg.width = 800;
             cfg.height = 600;
+            cfg.maximized = false;
+            cfg.sizeType = "medium";
         }
+
+        cfg.language = config["language"];
+
     } else {
         // Старая версия конфига для обратной совместимости
         cfg.theme = j["config"].value("theme", "Default");
@@ -86,6 +91,7 @@ bool JSONParser::loadSettings(const std::string& filename, CFG &cfg) {
         cfg.height = j["config"]["windowSize"].value("height", 600);
         cfg.maximized = j["config"]["windowSize"].value("maximized", false);
         cfg.sizeType = j["config"]["windowSize"].value("sizeType", "Medium");
+        cfg.language = j["config"]["windowSize"].value("language", "en");
     }
 
     return true;

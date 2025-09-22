@@ -329,6 +329,9 @@ Qt6GuiTools_DIR:PATH=C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6GuiTools
 //The directory containing a CMake configuration file for Qt6Gui.
 Qt6Gui_DIR:PATH=C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Gui
 
+//The directory containing a CMake configuration file for Qt6Linguisttools.
+Qt6Linguisttools_DIR:PATH=C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6LinguistTools
+
 //The directory containing a CMake configuration file for Qt6Network.
 Qt6Network_DIR:PATH=C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Network
 
@@ -1509,5 +1512,6 @@ Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
 Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/TextEditor
+_Qt6_LINGUIST_TOOLS_DIR:INTERNAL=C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6LinguistTools
 __qt_qml_macros_module_base_dir:INTERNAL=C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Qml
 

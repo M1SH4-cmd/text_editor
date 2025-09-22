@@ -27,6 +27,15 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
 
     centralLayout->addLayout(themeOptLayout);
 
+    auto *languagesLayout = new QHBoxLayout();
+    languagesLabel = new QLabel(tr("Language:"), this);
+    languagesCBX = new QComboBox(this);
+    languagesCBX->addItems(languagesList);
+    languagesLayout->addWidget(languagesLabel);
+    languagesLayout->addWidget(languagesCBX);
+
+    centralLayout->addLayout(languagesLayout);
+
     auto *wndSizeLayout = new QHBoxLayout();
     wndSizesLabel = new QLabel(tr("Window size:"), this);
     wndSizes = new QComboBox(this);
@@ -58,6 +67,11 @@ PrefDialog::PrefDialog(QWidget *parent) : QDialog(parent) {
         cfg.theme = themesCBX->currentText().toStdString();
         //parser.saveSettings("config.json", cfg);
     });
+
+    // connect(languagesCBX, &QComboBox::currentTextChanged, [this, &parser](){
+
+    //     cfg.language = languagesCBX->currentText().toStdString().substr(0, 2);
+    // });
 
     connect(wndSizes, &QComboBox::currentTextChanged, [this, parent, &parser](){
         if (!parent) return;

@@ -7202,6 +7202,18 @@
 			"value" : "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Gui"
 		},
 		{
+			"name" : "Qt6Linguisttools_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for Qt6Linguisttools."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6LinguistTools"
+		},
+		{
 			"name" : "Qt6Network_DIR",
 			"properties" : 
 			[
@@ -7540,6 +7552,18 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "C:/Program Files (x86)/TextEditor"
+		},
+		{
+			"name" : "_Qt6_LINGUIST_TOOLS_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6LinguistTools"
 		},
 		{
 			"name" : "__qt_qml_macros_module_base_dir",
