@@ -52,3 +52,7 @@ cmake --build .
 2. Edit text content
 3. Change font settings if needed
 4. Save using File → Save or toolbar buttons
+
+## Screenshots:
+
+<img width="1915" height="1043" alt="image" src="https://github.com/user-attachments/assets/c8bec2e1-f553-4c92-91fb-728d7223d7a9" />
